@@ -1,5 +1,5 @@
 import React from "react";
-import TitleImage from '../../assets/title.png'
+import TitleImage from '../../assets/title2x.png'
 
 import InfoModal from "../modals/InfoModal";
 
@@ -15,7 +15,7 @@ function Header() {
       </div>
       <div class="pz-toolbar">
       <div class="pz-toolbar-buttons">
-          <div class="pz-button">
+          <div class="pz-button" >
             <a
               href="https://www.nytimes.com/2024/07/27/crosswords/connections-companion-413.html"
               target="_blank"
@@ -49,6 +49,7 @@ function Header() {
               aria-haspopup="menu"
               aria-controls="help-dialog"
               aria-expanded="false"
+              onClick={() => {localStorage.removeItem('gameState'); window.location.reload()} }
             >
               <svg
                 aria-hidden="true"

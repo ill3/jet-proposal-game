@@ -11,11 +11,13 @@ import { GameStatusContext } from "../../providers/GameStatusProvider";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Badge } from "../ui/badge";
 
-function WordRow({ words }) {
+function WordRow({ words, shake }) {
+   const { guessCandidate, setGuessCandidate } =
+    React.useContext(GameStatusContext);
   return (
     <div className={`grid grid-cols-4 gap-2`}>
       {words.map((word) => (
-        <WordButton key={word} word={word} fullCandidateSize={words.length} />
+        <div className={`${!!guessCandidate.includes(word) && shake ? styles.shake : ""}`}><WordButton key={word} word={word} fullCandidateSize={words.length} /></div>
       ))}
     </div>
   );
@@ -88,9 +90,9 @@ function GameGrid({ gameRows, shouldGridShake, setShouldGridShake }) {
         </div>
       )}
       {isGameActive && (
-        <div className={`grid gap-y-2 ${shouldGridShake ? styles.shake : ""}`}>
+        <div className="grid gap-y-2">
           {gameRows.map((row, idx) => (
-            <WordRow key={idx} words={row} />
+            <WordRow key={idx} words={row} shake={shouldGridShake}/>
           ))}
         </div>
       )}

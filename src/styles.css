@@ -101,11 +101,18 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  height: 160px;
 
   .pz-game-header-title {
     max-width: 1250px;
     flex:auto;
-    margin-bottom: 28px;
+
+
+  }
+
+  .pz-game-header-title, img {
+    height: 54px;  
+    margin-bottom: 30px
   }
 
   .pz-game-title {
@@ -113,7 +120,7 @@ body {
     font-weight: 500;
     margin-right: 16px;
     text-align: left;
-    margin-left: 40px;
+    margin-left: 20px;
   }
 
   .pz-game-date {
@@ -200,6 +207,8 @@ body {
 
 .button {
   background-color: #efefe6;
+  width:100%;
+
 }
 
 .button[data-state="on"] {
