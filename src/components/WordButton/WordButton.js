@@ -42,7 +42,7 @@ function WordButton({ word, fullCandidateSize }) {
   function getFontSize(word) {
     const baseLength = 7;
     const wordLength = word.length;
-    let fontSize = 1;
+    let fontSize = 1.5;
     if (wordLength > baseLength) {
       const numExtraChars = wordLength - baseLength;
       fontSize = fontSize - numExtraChars * 0.1;
@@ -55,14 +55,14 @@ function WordButton({ word, fullCandidateSize }) {
   // word = "washingtonian";
   return (
     <Toggle
-      className={`${styles.growShrink} select-none`}
+      className={`${styles.growShrink} select-none button`}
       variant="outline"
       pressed={isSelected}
       onClick={flipSelection}
     >
       <p
         style={{ fontSize: getFontSize(word) }}
-        className="font-space-mono uppercase sm:text-xs md:text-xs"
+        className="font-bold uppercase sm:text-lg md:text-lg"
       >
         {word}
       </p>

@@ -46,11 +46,11 @@ function Game() {
       return;
     }
     // extra delay for game won to allow confetti to show
-    const modalDelay = isGameWon ? 2000 : 250;
+    const modalDelay = isGameWon ? 5000 : 250;
     const delayModalOpen = window.setTimeout(() => {
-      setisEndGameModalOpen(true);
+      //setisEndGameModalOpen(true);
       //unmount confetti after modal opens
-      setShowConfetti(false);
+      //setShowConfetti(false);
     }, modalDelay);
 
     if (isGameWon) {
@@ -62,8 +62,8 @@ function Game() {
 
   return (
     <>
-      <h3 className="text-xl text-center mt-4">
-        Create {numCategories} groups of {categorySize}
+      <h3 className="text-xl text-center mt-4 game-caption font-franklin">
+      Create four groups of four!
       </h3>
 
       <div className={`game-wrapper`}>
@@ -86,13 +86,13 @@ function Game() {
         {showConfetti && isGameOver && (
           <div className="grid place-content-center">
             <ConfettiExplosion
-              particleCount={100}
-              force={0.8}
-              duration={2500}
+              particleCount={500}
+              force={1}
+              duration={3000}
+              width={3000}
             />
           </div>
         )}
-        <Separator />
 
         {!isGameOver ? (
           <>

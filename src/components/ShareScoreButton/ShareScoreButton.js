@@ -28,7 +28,7 @@ function ShareScoreButton({ buttonText = "Share", className = "" }) {
   return (
     <Sparkles>
       <Button
-        className={cn(className, "w-full")}
+        className={cn(className, "w-full button-control button-wider")}
         variant="share"
         onClick={() =>
           shareStatus(

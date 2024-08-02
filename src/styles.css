@@ -6,7 +6,7 @@ html {
   overflow-y: scroll;
 
   --game-spacing: 32px;
-  --header-height: 4rem;
+  --header-height: 140px;
 
   --color-success: hsl(150deg 70% 30%);
   --color-warning: hsl(50deg 100% 30%);
@@ -16,6 +16,8 @@ html {
   --color-gray-500: hsl(0deg 0% 50%);
   --color-gray-700: hsl(0deg 0% 75%);
   --color-gray-900: hsl(0deg 0% 90%);
+
+  --color-active: #5a594e;
 }
 
 /*
@@ -37,30 +39,149 @@ body {
   min-height: 100%;
 }
 
-header {
+.pz-nav {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  height: 56px;
+  position: relative;
+  width: 100%;
+  background: #fff;
+  padding-right: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.pz-nav-hamburger {
+  width: 60px;
+  padding: 16px;
+}
+
+.pz-nav-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    width: 100%;
+
+}
+
+.pz-nav__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  font-family: "Libre Franklin";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .047em;
+  text-transform: uppercase;
+  height: 36px;
+  border: 1px solid #f4f4f4;
+  border-radius: 3px;
+  color: #fff;
+  border-color: #000;
+  background-color: #000;
+  margin-left: 8px;
+  padding: 1px 33px 0;
+  cursor: pointer;
+}
+
+.pz-nav__button.white {
+  color: #000;
+  border-color: #000;
+  background-color: #fff;
+}
+
+.pz-game-header {
   height: var(--header-height);
-  border-bottom: 1px solid var(--color-gray-700);
-  color: var(--color-gray-300);
+  border-bottom: 1px solid var(--color-gray-900);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  .pz-game-header-title {
+    max-width: 1250px;
+    flex:auto;
+    margin-bottom: 28px;
+  }
+
+  .pz-game-title {
+    font-size: 38px;
+    font-weight: 500;
+    margin-right: 16px;
+    text-align: left;
+    margin-left: 40px;
+  }
+
+  .pz-game-date {
+    font-size: 28px;
+    font-weight: 300;
+  }
 }
 
-header .side {
-  width: var(--header-height);
-  display: grid;
-  place-content: center;
+.pz-game-header span {
+  align-self: flex-end;
+  margin-bottom: 10px;
+  line-height: 80px;
 }
 
-h1 {
-  flex: 1;
-  font-size: 2rem;
-  line-height: var(--header-height);
-  text-align: center;
+.pz-toolbar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border-bottom: 1px solid var(--color-gray-900);
+  padding-right: 20px;
 }
+
+.pz-toolbar-buttons {
+  width: 100%;
+  max-width: 1250px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pz-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 60px;
+}
+
+.game-caption {
+  color:#000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mistakes-text {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.mistakes-circle {
+  background-color: var(--color-active);
+  fill: var(--color-active);
+}
+
 
 @media (max-width: 25rem) {
   h1 {
     font-size: 1.25rem;
   }
+}
+
+.confetti {
+  width: 100%;
 }
 
 .game-wrapper {
@@ -73,9 +194,63 @@ h1 {
   padding-left: var(--game-spacing);
   padding-right: var(--game-spacing);
   margin: 0 auto;
-  min-width: max(300px, 55vh, 40%);
-  max-width: min(500px, 58vh, 100%);
+  width: calc(3 * 8px + 4 * 170px);
+  font-size: 20px;
 }
+
+.button {
+  background-color: #efefe6;
+}
+
+.button[data-state="on"] {
+  background-color: var(--color-active);
+  color: #fff;
+}
+
+.button-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.button-control {
+  font-family: nyt-franklin, Arial;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 5.5em;
+  height: 3em;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  max-width: 80vw;
+  border-radius: 32px;
+  line-height: 1.5em;
+  cursor: pointer;
+  border: 1px solid;
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+.button-control:hover {
+background-color: #000;
+color: #fff;
+}
+
+.button-wide {
+  min-width: 140px;
+}
+
+.button-wider {
+  min-width: 170px;
+}
+
 
 .banner {
   position: fixed;
@@ -123,3 +298,12 @@ h1 {
     transform: translateY(0%);
   }
 }
+
+.toast {
+  background-color: #000;
+  color: #fff;
+  max-width: 200px !important;
+  max-height: 50px;
+}
+
+

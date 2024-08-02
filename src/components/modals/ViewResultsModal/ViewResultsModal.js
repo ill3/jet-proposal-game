@@ -16,21 +16,20 @@ function ViewResultsModal() {
     <BaseModal
       title=""
       trigger={
-        <Button variant="submit" className="w-full" children={"View Results"} />
+        <div className="button-controls"><Button variant="submit" className="w-full button-control button-wide" children={"View Results"} /></div>
       }
       initiallyOpen={false}
       showActionButton={false}
       footerElements={<ShareScoreButton buttonText={"Share Your Score!"} />}
     >
       <div className="flex flex-col place-content-center">
-        <p className="text-center font-[600]">
+        <p className="text-center game-caption">
           Your Guesses Are Represented Below
         </p>
         <span className="text-center whitespace-pre mb-2">
           {"\n"}
           {generateEmojiGrid(gameData, submittedGuesses)}
         </span>
-        <CountdownToNextPuzzle />
       </div>
     </BaseModal>
   );

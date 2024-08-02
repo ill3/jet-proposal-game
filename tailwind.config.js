@@ -71,8 +71,9 @@ module.exports = {
       },
     },
     fontFamily: {
-      "space-mono": ["Space Mono"],
-    },
+      "bevan": ["Bevan"],
+      "franklin": ["Libre Franklin"]
+    }
   },
   plugins: [require("tailwindcss-animate")],
 };

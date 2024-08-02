@@ -13,7 +13,7 @@ import { Badge } from "../ui/badge";
 
 function WordRow({ words }) {
   return (
-    <div className={`grid grid-cols-4 gap-4`}>
+    <div className={`grid grid-cols-4 gap-2`}>
       {words.map((word) => (
         <WordButton key={word} word={word} fullCandidateSize={words.length} />
       ))}
@@ -23,10 +23,10 @@ function WordRow({ words }) {
 
 export function SolvedWordRow({ ...props }) {
   const DIFFICULTY_COLOR_MAP = {
-    1: "rgb(74 222 128)", // green
-    2: "rgb(251 191 36)", // amber
-    3: "rgb(129 140 248)", //indigo
-    4: "rgb(34 211 238)", //cyan
+    1: "#a0c35a", // green
+    2: "#f9df6d", // amber
+    3: "#ba81c5", //indigo
+    4: "#b0c4ef", //cyan
   };
 
   const color = `${DIFFICULTY_COLOR_MAP[props.difficulty]}`;
@@ -48,35 +48,10 @@ export function SolvedWordRow({ ...props }) {
   const isImageAvailable = props.imageSrc != null;
   return (
     <animated.div style={springProps}>
-      {!isImageAvailable ? (
         <div style={{ backgroundColor: color, borderRadius: 8 }}>
-          <p className="font-bold pt-2 pl-4">{props.category}</p>
-          <p className="font-thin pb-2 pl-4">{props.words.join(", ")}</p>
-        </div>
-      ) : (
-        <Popover>
-          <PopoverTrigger asChild>
-            <div
-              className="cursor-pointer hover:animate-pulse shadow-md"
-              style={{ backgroundColor: color, borderRadius: 8 }}
-              onClick={() => setHasBeenClicked(true)}
-            >
-              {!hasBeenClicked && (
-                <Badge className="animate-pulse absolute top-0 right-0 mr-2 mt-2">
-                  View More
-                </Badge>
-              )}
-              <p className="font-bold pt-2 pl-4">{props.category}</p>
-              <p className="font-thin pb-2 pl-4">{props.words.join(", ")}</p>
-            </div>
-          </PopoverTrigger>
-          <PopoverContent>
-            <div>
-              <img src={props.imageSrc} />
-            </div>
-          </PopoverContent>
-        </Popover>
-      )}
+          <p className="font-bold pt-2 pl-4 text-center">{props.category}</p>
+          <p className="font-thin pb-2 pl-4 text-center">{props.words.join(", ")}</p>
+</div>
     </animated.div>
   );
 }

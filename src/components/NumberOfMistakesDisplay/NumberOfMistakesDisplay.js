@@ -8,9 +8,9 @@ function SingleMistakeDisplay({ isUsed }) {
   return (
     <div>
       {isUsed ? (
-        <CircleSlash className="h-4 w-4 mt-1 stroke-neutral-400" />
+        <Circle className="h-4 w-4 mt-1" fill="#fff"  stroke="#fff"/>
       ) : (
-        <Circle className="h-4 w-4 mt-1 fill-green-300 stroke-cyan-300" />
+        <Circle className="h-4 w-4 mt-1" fill="#5a594e"  stroke="#5a594e"/>
       )}
     </div>
   );
@@ -22,9 +22,9 @@ function NumberOfMistakesDisplay() {
   const mistakeRange = range(MAX_MISTAKES);
   return (
     <div className="flex flex-row gap-x-4 justify-center">
-      <p className="text-base">Mistakes Remaining: </p>
-      {mistakeRange.map((el) => (
-        <SingleMistakeDisplay key={el} isUsed={el < numMistakesUsed} />
+      <p className="text-base mistakes-text font-franklin">Mistakes remaining: </p>
+      {mistakeRange.map((el) => (        
+        <SingleMistakeDisplay key={el} isUsed={el > (3 - numMistakesUsed)} />
       ))}
     </div>
   );
