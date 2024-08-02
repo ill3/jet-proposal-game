@@ -1,12 +1,6 @@
 # Connections (React, Tailwind, Shadcn/ui)
 
-This is a clone of the [NYT Connections Game](https://www.nytimes.com/games/connections). Which itself seems to be an unacknowledged clone of the British game [`Only Connect`](https://kotaku.com/new-york-times-connections-only-connect-puzzle-wordle-1850553072).
-
-Anyways..
-
-### [Click Here To Try Out The Demo](https://blackconnections.andcomputers.io/)
-
-![Gif of Connections Gameplay](/docs/instructions-gif-connections.gif)
+This is a clone of the [NYT Connections Game](https://www.nytimes.com/games/connections). Which itself seems to be an unacknowledged clone of the British game [`Only Connect`](https://kotaku.com/new-york-times-connections-only-connect-puzzle-wordle-1850553072)
 
 ## To Run Locally:
 
