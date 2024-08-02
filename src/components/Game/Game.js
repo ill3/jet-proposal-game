@@ -90,6 +90,7 @@ function Game() {
               force={1}
               duration={3000}
               width={3000}
+              particleSize={20}
             />
           </div>
         )}
